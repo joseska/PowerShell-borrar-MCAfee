@@ -4,7 +4,7 @@
 
 # Borramos el MCAffe Enterprise
 $Programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'McAfee VirusScan Enterprise'"
-if ($Programa -eq $False) {
+if ($Programa) {
     $Programa.Uninstall()
 }
 else {
@@ -17,7 +17,7 @@ Start-Sleep -s 3
 $uninstall64 = (Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\McAfee\Agent -ErrorAction SilentlyContinue).InstallPath
 $uninstall32 = (Get-ItemProperty HKLM:\SOFTWARE\McAfee\Agent -ErrorAction SilentlyContinue).InstallPath
 
-if ($uninstall64 -eq $False) {
+if ($uninstall64) {
     $uninstall64 =  "$($uninstall64)frminst.exe"
     $uninstall64 = $uninstall64.Trim()
 
@@ -26,7 +26,10 @@ if ($uninstall64 -eq $False) {
     Write "desinstalando 64Bits /forceuninstall. Puede tardar bastante..."
     Start-Process -FilePath $uninstall64 -args "/forceuninstall /Silent" -Wait
 }
-ElseIf ($uninstall32 -eq $False) {
+ElseIf ($uninstall32) {
+    $uninstall32 =  "$($uninstall32)frminst.exe"
+    $uninstall32 = $uninstall32.Trim()
+
     Write "desinstalando 32Bits /remove=agent. Puede tardar bastante..."
     Start-Process -FilePath $uninstall32 -args "/remove=agent" -Wait
     Write "desinstalando 32Bits /forceuninstall. Puede tardar bastante..."
