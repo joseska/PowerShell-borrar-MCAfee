@@ -4,3 +4,5 @@ Como sabemos el MCAfee en su versión Enterprise es peor que una garrapata, se q
 Simplemente ejecuta el script en una consola de Powershell en modo administrador.  
   
 El Script sirve tanto para 32 bits como para 64 bits.  
+
+http://www.josemanuelluis.com/blog/borrar-epo-mcafee-antivirus-enterprise-powershell/
