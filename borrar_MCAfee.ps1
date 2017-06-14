@@ -1,4 +1,4 @@
-﻿# ejecutar Script en Equipos con el "Set-ExecutionPolicy restricted"
+# ejecutar Script en Equipos con el "Set-ExecutionPolicy restricted"
 # Set-ExecutionPolicy Unrestricted
 
 
