@@ -1,6 +1,8 @@
 # ejecutar Script en Equipos con el "Set-ExecutionPolicy restricted"
 # Set-ExecutionPolicy Unrestricted
 
+# Paramos los servicios y los deshabilitamos
+Get-Service -Name mfevtp, McAfeeFramework, macmnsvc, masvc, McShield, mfemms, McTaskManager | Stop-Service -PassThru -force | Set-Service -StartupType disabled
 
 # Borramos el MCAffe Enterprise
 $Programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'McAfee VirusScan Enterprise'"
